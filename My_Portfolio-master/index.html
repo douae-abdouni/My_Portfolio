@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abdouni Douae - Portfolio</title>
+    <link rel="stylesheet" href="CSS/index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Add animate.css for additional animations -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body>
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                DA
+            </div>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="#hero" title="Home"><i class="fas fa-home"></i></a></li>
+            <li><a href="#about" title="About"><i class="fas fa-user"></i></a></li>
+            <li><a href="#skills" title="Skills"><i class="fas fa-code"></i></a></li>
+            <li><a href="#projects" title="Projects"><i class="fas fa-folder-open"></i></a></li>
+            <li><a href="#certifications" title="Certifications"><i class="fas fa-certificate"></i></a></li>
+            <li><a href="#cv-download" title="Resume"><i class="fas fa-file-alt"></i></a></li>
+            <li><a href="#contact" title="Contact"><i class="fas fa-envelope"></i></a></li>
+        </ul>
+        <div class="sidebar-footer">
+            <a href="https://github.com/douae-abdouni" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/douae-abdouni/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </nav>
+
+    <!-- Global Animated Background -->
+    <div class="animated-background-global">
+        <canvas id="networkCanvas"></canvas>
+    </div>
+
+<!-- Hero Section -->
+<section id="hero">
+
+    <div class="container">
+        <h1 class="animate__animated animate__fadeInDown">Turning Ideas into <span class="highlight">Real-Life</span> Solutions is My Calling.</h1>
+        <div class="hero-subtitle animate__animated animate__fadeIn animate__delay-1s">
+            <span class="typed-text"></span><span class="cursor">&nbsp;</span>
+        </div>
+        <a href="#projects" class="cta-button animate__animated animate__fadeInUp animate__delay-1s">
+            <i class="fas fa-code"></i> View Projects
+        </a>
+    </div>
+</section>
+
+<!-- Divider Line -->
+<hr class="section-divider">
+
+
+
+<!-- About Me Section -->
+<section id="about">
+    <div class="container">
+        <div class="about-content">
+            <div class="about-text">
+                <h2 class="animate__animated animate__fadeIn">About Me</h2>
+                <p class="animate__animated animate__fadeIn animate__delay-1s">
+                    I'm a Computer Engineering student passionate about software
+                    development, system design, and emerging technologies. 💻✨
+                </p>
+                <p class="animate__animated animate__fadeIn animate__delay-2s">
+                    My journey in tech is driven by curiosity and a desire to create
+                    innovative solutions that make a positive impact.
+                </p>
+            </div>
+            <img src="IMAGES/profile linkedin.jpg" alt="Abdouni Douae" class="profile-img animate__animated animate__fadeInRight">
+        </div>
+    </div>
+</section>
+
+<!-- Skills Section -->
+<section id="skills">
+    <div class="container">
+        <h2 class="animate__animated animate__fadeIn">Skills</h2>
+
+        <!-- Technical Skills -->
+        <div class="skills-category">
+            <h3>Technical Skills</h3>
+            <div class="tech-badges">
+                <div class="tech-badge html">
+                    <i class="fab fa-html5"></i>
+                    HTML5
+                </div>
+                <div class="tech-badge css">
+                    <i class="fab fa-css3-alt"></i>
+                    CSS
+                </div>
+                <div class="tech-badge javascript">
+                    <i class="fab fa-js-square"></i>
+                    JavaScript
+                </div>
+                <div class="tech-badge php">
+                    <i class="fab fa-php"></i>
+                    PHP
+                </div>
+                <div class="tech-badge bootstrap">
+                    <i class="fab fa-bootstrap"></i>
+                    Bootstrap
+                </div>
+                <div class="tech-badge mvc">
+                    <i class="fas fa-layer-group"></i>
+                    MVC Architecture
+                </div>
+                <div class="tech-badge c">
+                    <i class="fas fa-code"></i>
+                    C
+                </div>
+                <div class="tech-badge cpp">
+                    <i class="fas fa-code"></i>
+                    C++
+                </div>
+                <div class="tech-badge qt">
+                    <i class="fas fa-desktop"></i>
+                    Qt Framework
+                </div>
+                <div class="tech-badge mysql">
+                    <i class="fas fa-database"></i>
+                    MySQL
+                </div>
+                <div class="tech-badge vscode">
+                    <i class="fas fa-code"></i>
+                    VS Code
+                </div>
+                <div class="tech-badge matlab">
+                    <i class="fas fa-calculator"></i>
+                    MATLAB
+                </div>
+            </div>
+        </div>
+
+        <!-- Soft Skills -->
+        <div class="skills-category">
+            <h3>Soft Skills</h3>
+            <div class="tech-badges">
+                <div class="tech-badge soft-skill">
+                    <i class="fas fa-users"></i>
+                    Teamwork
+                </div>
+                <div class="tech-badge soft-skill">
+                    <i class="fas fa-comments"></i>
+                    Communication
+                </div>
+                <div class="tech-badge soft-skill">
+                    <i class="fas fa-puzzle-piece"></i>
+                    Problem Solving
+                </div>
+                <div class="tech-badge soft-skill">
+                    <i class="fas fa-clock"></i>
+                    Time Management
+                </div>
+                <div class="tech-badge soft-skill">
+                    <i class="fas fa-sync-alt"></i>
+                    Adaptability
+                </div>
+                <div class="tech-badge soft-skill">
+                    <i class="fas fa-crown"></i>
+                    Leadership
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Languages Section -->
+<section id="languages">
+    <div class="container">
+        <h2 class="animate__animated animate__fadeIn">Languages</h2>
+
+        <!-- Language Proficiency -->
+        <div class="skills-category">
+            <h3>Language Proficiency</h3>
+            <div class="tech-badges">
+                <div class="tech-badge language-fluent">
+                    <i class="fas fa-globe-americas"></i>
+                    English - Fluent
+                </div>
+                <div class="tech-badge language-fluent">
+                    <i class="fas fa-globe-europe"></i>
+                    French - Fluent
+                </div>
+                <div class="tech-badge language-beginner">
+                    <i class="fas fa-globe"></i>
+                    Spanish - Beginner
+                </div>
+                <div class="tech-badge language-beginner">
+                    <i class="fas fa-globe-asia"></i>
+                    Turkish - Beginner
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Projects Section -->
+<section id="projects">
+    <div class="container">
+        <h2 class="animate__animated animate__fadeIn">My <span>Projects</span></h2>
+        <p class="subtitle">Featured work I've built and designed</p>
+
+        <!-- Project 1 -->
+        <div class="project-item">
+            <div class="project-number">01</div>
+            <div class="project-content">
+                <h3 class="project-title">University Management System (Web Application)</h3>
+                <p class="project-description">
+                    A role-based university management system designed to streamline academic and administrative tasks. Features separate interfaces for different user roles including Admins, Coordinators, and Professors. Built with MVC architecture for scalability and efficient code organization.
+                </p>
+                <div class="tech-stack">
+                    <div class="tech-stack-label">Tech Stack</div>
+                    <div class="tech-badges">
+                        <span class="tech-badge html"><i class="fab fa-html5"></i>HTML</span>
+                        <span class="tech-badge css"><i class="fab fa-css3-alt"></i>CSS</span>
+                        <span class="tech-badge bootstrap"><i class="fab fa-bootstrap"></i>Bootstrap</span>
+                        <span class="tech-badge php"><i class="fab fa-php"></i>PHP</span>
+                        <span class="tech-badge mvc"><i class="fas fa-layer-group"></i>MVC</span>
+                        <span class="tech-badge mysql"><i class="fas fa-database"></i>MySQL</span>
+                        <span class="tech-badge javascript"><i class="fab fa-js-square"></i>JavaScript</span>
+                    </div>
+                </div>
+                <div class="project-actions">
+                    <a href="#" target="_blank" class="button project-link" data-tooltip="View Project">
+                        <div class="button-wrapper">
+                            <div class="text">View Project</div>
+                            <div class="icon">
+                                <i class="fas fa-external-link-alt"></i>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="project-image">
+                <img src="IMAGES/web2.png" alt="University Management System">
+            </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-item">
+            <div class="project-number">02</div>
+            <div class="project-content">
+                <h3 class="project-title">PixelPress — Smart Media Compression Tool</h3>
+                <p class="project-description">
+                    A cross-platform desktop application for efficient image and video compression with drag & drop support. Built with C++ and Qt framework featuring animated UI, MySQL database integration, and FFmpeg for media processing. Includes compression history tracking and support for both local and remote files.
+                </p>
+                <div class="tech-stack">
+                    <div class="tech-stack-label">Tech Stack</div>
+                    <div class="tech-badges">
+                        <span class="tech-badge cpp"><i class="fas fa-code"></i>C++</span>
+                        <span class="tech-badge qt"><i class="fas fa-desktop"></i>Qt</span>
+                        <span class="tech-badge mysql"><i class="fas fa-database"></i>MySQL</span>
+                    </div>
+                </div>
+                <div class="project-actions">
+                    <a href="https://github.com/douae-abdouni/QT-Project" target="_blank" class="button project-link" data-tooltip="View Project">
+                        <div class="button-wrapper">
+                            <div class="text">View Project</div>
+                            <div class="icon">
+                                <i class="fas fa-external-link-alt"></i>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="project-image">
+                <img src="IMAGES/QT.png" alt="PixelPress Qt Application">
+            </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-item">
+            <div class="project-number">03</div>
+            <div class="project-content">
+                <h3 class="project-title">Travel Landing Page</h3>
+                <p class="project-description">
+                    A fully responsive landing page for travel, built using HTML and CSS.
+                    Features modern design elements, smooth animations, and mobile-friendly layout.
+                </p>
+                <div class="tech-stack">
+                    <div class="tech-stack-label">Tech Stack</div>
+                    <div class="tech-badges">
+                        <span class="tech-badge html"><i class="fab fa-html5"></i>HTML</span>
+                        <span class="tech-badge css"><i class="fab fa-css3-alt"></i>CSS</span>
+                    </div>
+                </div>
+                <div class="project-actions">
+                    <a href="https://github.com/douae-abdouni/HTML-CSS-" target="_blank" class="button project-link" data-tooltip="View on GitHub">
+                        <div class="button-wrapper">
+                            <div class="text">View Project</div>
+                            <div class="icon">
+                                <i class="fab fa-github"></i>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="project-image">
+                <img src="IMAGES/Screenshot 2025-02-26 113458.png" alt="HTML&CSS">
+            </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="project-item">
+            <div class="project-number">04</div>
+            <div class="project-content">
+                <h3 class="project-title">Hijabs & Abayas Store</h3>
+                <p class="project-description">
+                    A responsive landing page for a hijabs and abayas store, built using HTML and CSS.
+                    Includes product showcases, elegant design, and smooth user experience.
+                </p>
+                <div class="tech-stack">
+                    <div class="tech-stack-label">Tech Stack</div>
+                    <div class="tech-badges">
+                        <span class="tech-badge html"><i class="fab fa-html5"></i>HTML</span>
+                        <span class="tech-badge css"><i class="fab fa-css3-alt"></i>CSS</span>
+                    </div>
+                </div>
+                <div class="project-actions">
+                    <a href="https://github.com/douae-abdouni/HTML-CSS" target="_blank" class="button project-link" data-tooltip="View on GitHub">
+                        <div class="button-wrapper">
+                            <div class="text">View Project</div>
+                            <div class="icon">
+                                <i class="fab fa-github"></i>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="project-image">
+                <img src="IMAGES/Screenshot 2025-02-26 113849.png" alt="HTML/CSS">
+            </div>
+        </div>
+
+        <!-- Project 5 -->
+        <div class="project-item">
+            <div class="project-number">05</div>
+            <div class="project-content">
+                <h3 class="project-title">Admin Dashboard</h3>
+                <p class="project-description">
+                    A fully responsive dashboard interface built using HTML and CSS.
+                    Features data visualization components, navigation system, and user-friendly controls.
+                </p>
+                <div class="tech-stack">
+                    <div class="tech-stack-label">Tech Stack</div>
+                    <div class="tech-badges">
+                        <span class="tech-badge html"><i class="fab fa-html5"></i>HTML</span>
+                        <span class="tech-badge css"><i class="fab fa-css3-alt"></i>CSS</span>
+                    </div>
+                </div>
+                <div class="project-actions">
+                    <a href="https://github.com/douae-abdouni/HTML-CSS-3" target="_blank" class="button project-link" data-tooltip="View on GitHub">
+                        <div class="button-wrapper">
+                            <div class="text">View Project</div>
+                            <div class="icon">
+                                <i class="fab fa-github"></i>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="project-image">
+                <img src="IMAGES/Screenshot 2025-02-26 113923.png" alt="HTML/CSS">
+            </div>
+        </div>
+
+        <!-- Project 6 -->
+        <div class="project-item">
+            <div class="project-number">06</div>
+            <div class="project-content">
+                <h3 class="project-title">Amanlines Travel Agency</h3>
+                <p class="project-description">
+                    A terminal-based application built in C for managing travel bookings and customer data.
+                    Includes features for booking management, customer records, and reporting.
+                </p>
+                <div class="tech-stack">
+                    <div class="tech-stack-label">Tech Stack</div>
+                    <div class="tech-badges">
+                        <span class="tech-badge c"><i class="fas fa-code"></i>C</span>
+                        <span class="tech-badge vscode"><i class="fas fa-code"></i>VS Code</span>
+                    </div>
+                </div>
+                <div class="project-actions">
+                    <a href="https://github.com/douae-abdouni/Project-C-" target="_blank" class="button project-link" data-tooltip="View on GitHub">
+                        <div class="button-wrapper">
+                            <div class="text">View Project</div>
+                            <div class="icon">
+                                <i class="fab fa-github"></i>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="project-image">
+                <img src="IMAGES/AMANLINES.png" alt="C Project">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Certifications Section -->
+<section id="certifications">
+    <div class="container">
+        <h2 class="animate__animated animate__fadeIn">Certifications <i class="fas fa-certificate"></i></h2>
+        <div class="certifications-grid">
+            <!-- Certification 1 -->
+            <div class="certification">
+                <img src="IMAGES/HTML UDEMY_page-0001.jpg" alt="Certification 1">
+                <h3>HTML & CSS</h3>
+                <p><i class="fas fa-certificate"></i> Issued by: UDEMY</p>
+                <p><i class="fas fa-calendar-alt"></i> Date: 02/2025</p>
+            </div>
+
+            <!-- Certification 2 -->
+            <div class="certification">
+                <img src="IMAGES/sql_intermediate certificate_page-0001.jpg" alt="Certification 2">
+                <h3>Intermediate SQL</h3>
+                <p><i class="fas fa-certificate"></i> Issued by: HACKERRANK</p>
+                <p><i class="fas fa-calendar-alt"></i> Date: 01/2025</p>
+            </div>
+
+            <!-- Certification 3 -->
+            <div class="certification">
+                <img src="IMAGES/CertificateOfCompletion_Programming Foundations Fundamentals_page-0001.jpg" alt="Certification 3">
+                <h3>Programming Foundations</h3>
+                <p><i class="fas fa-certificate"></i> Issued by:LINKEDIN </p>
+                <p><i class="fas fa-calendar-alt"></i> Date: 11/2024</p>
+            </div>
+
+            <!-- Certification 4 -->
+            <div class="certification">
+                <img src="IMAGES/simpllearn certificate cloud_page-0001.jpg" alt="Certification 4">
+                <h3>Cloud Computing</h3>
+                <p><i class="fas fa-certificate"></i> Issued by: SIMPLILEARN</p>
+                <p><i class="fas fa-calendar-alt"></i> Date: 01/2025</p>
+            </div>
+           <!-- Certification 5 -->
+            <div class="certification">
+                <img src="IMAGES/delfB2.png" alt="Certification 5">
+                <h3>DELF B2</h3>
+                <p><i class="fas fa-certificate"></i> Issued by:Ministry of National Education, Youth and Sports</p>
+                <p><i class="fas fa-calendar-alt"></i> Date: 17/01/2022</p>
+            </div>
+
+            <!-- Certification 6 -->
+            <div class="certification">
+                <img src="IMAGES/SPANISH_CERT.png" alt="Spanish Certificate">
+                <h3>Spanish Language Certificate</h3>
+                <p><i class="fas fa-certificate"></i> Issued by: Strommen</p>
+                <p><i class="fas fa-calendar-alt"></i> Date: 2025</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CV Download Section -->
+<section id="cv-download">
+    <div class="container">
+        <h2 class="animate__animated animate__fadeIn">Download My CV</h2>
+        <p>Want to know more about my skills and experience? Download my CV below!</p>
+        <a href="IMAGES/MY CV ENG.pdf " download class="button cv-download-button" data-tooltip="Resume PDF">
+            <div class="button-wrapper">
+                <div class="text">Download CV</div>
+                <div class="icon">
+                    <i class="fas fa-file-download"></i>
+                </div>
+            </div>
+        </a>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact">
+    <div class="container">
+        <h2 class="animate__animated animate__fadeIn">Contact Me</h2>
+        <div class="contact-info">
+            <p>
+                <i class="fas fa-envelope"></i> <!-- Email Icon -->
+                <span class="email">douaeabdouni@gmail.com</span>
+            </p>
+            <p>
+                <i class="fas fa-phone"></i> <!-- Phone Icon -->
+                <span class="phone">+212 707 993 963</span>
+            </p>
+        </div>
+    </div>
+</section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Abdouni Douae. All rights reserved.</p>
+            <div class="social-icons">
+                <a href="https://github.com/douae-abdouni" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/douae-abdouni/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <!-- Add more social icons as needed -->
+                <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Add JavaScript -->
+    <script src="script.js"></script>
+    <script src="animated-background.js"></script>
+</body>
+</html>
