@@ -11,6 +11,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- Add animate.css for additional animations -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- Translations -->
+    <script src="translations.js"></script>
 </head>
 <body>
     <!-- Sidebar Navigation -->
@@ -24,16 +26,56 @@
             <li><a href="#hero" title="Home"><i class="fas fa-home"></i></a></li>
             <li><a href="#about" title="About"><i class="fas fa-user"></i></a></li>
             <li><a href="#skills" title="Skills"><i class="fas fa-code"></i></a></li>
+            <li><a href="#experience" title="Experience"><i class="fas fa-briefcase"></i></a></li>
             <li><a href="#projects" title="Projects"><i class="fas fa-folder-open"></i></a></li>
             <li><a href="#certifications" title="Certifications"><i class="fas fa-certificate"></i></a></li>
+            <li><a href="#education" title="Education"><i class="fas fa-graduation-cap"></i></a></li>
             <li><a href="#cv-download" title="Resume"><i class="fas fa-file-alt"></i></a></li>
             <li><a href="#contact" title="Contact"><i class="fas fa-envelope"></i></a></li>
         </ul>
         <div class="sidebar-footer">
-            <a href="https://github.com/douae-abdouni" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/douae-abdouni/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
         </div>
     </nav>
+
+    <!-- Language Selector and Theme Switch (Top Right) -->
+    <div class="language-selector-container">
+        <div class="lang-dropdown-wrapper">
+            <div class="lang-dropdown-toggle" id="langToggle" aria-label="Language selector" title="Language">EN</div>
+            <div class="lang-dropdown-options" id="langDropdown" style="display: none;">
+                <div class="lang-option" data-value="en">US</div>
+                <div class="lang-option" data-value="fr">FR</div>
+                <div class="lang-option" data-value="es">ES</div>
+                <div class="lang-option" data-value="ar">MA</div>
+            </div>
+        </div>
+        <!-- Theme Switch Toggle -->
+        <label class="theme-switch">
+            <input type="checkbox" class="theme-switch__checkbox" id="themeToggle">
+            <div class="theme-switch__container">
+                <div class="theme-switch__clouds"></div>
+                <div class="theme-switch__stars-container">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 144 55" fill="none">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M135.831 3.00688C135.055 3.85027 134.111 4.29946 133 4.35447C134.111 4.40947 135.055 4.85867 135.831 5.71123C136.607 6.55462 136.996 7.56303 136.996 8.72727C136.996 7.95722 137.172 7.25134 137.525 6.59129C137.886 5.93124 138.372 5.39954 138.98 5.00535C139.598 4.60199 140.268 4.39114 141 4.35447C139.88 4.2903 138.936 3.85027 138.16 3.00688C137.384 2.16348 136.996 1.16425 136.996 0C136.996 1.16425 136.607 2.16348 135.831 3.00688ZM31 23.3545C32.1114 23.2995 33.0551 22.8503 33.8313 22.0069C34.6075 21.1635 34.9956 20.1642 34.9956 19C34.9956 20.1642 35.3837 21.1635 36.1599 22.0069C36.9361 22.8503 37.8798 23.2903 39 23.3545C38.2679 23.3911 37.5976 23.602 36.9802 24.0053C36.3716 24.3995 35.8864 24.9312 35.5248 25.5913C35.172 26.2513 34.9956 26.9572 34.9956 27.7273C34.9956 26.563 34.6075 25.5546 33.8313 24.7112C33.0551 23.8587 32.1114 23.4095 31 23.3545ZM0 36.3545C1.11136 36.2995 2.05513 35.8503 2.83131 35.0069C3.6075 34.1635 3.99559 33.1642 3.99559 32C3.99559 33.1642 4.38368 34.1635 5.15987 35.0069C5.93605 35.8503 6.87982 36.2903 8 36.3545C7.26792 36.3911 6.59757 36.602 5.98015 37.0053C5.37155 37.3995 4.88644 37.9312 4.52481 38.5913C4.172 39.2513 3.99559 39.9572 3.99559 40.7273C3.99559 39.563 3.6075 38.5546 2.83131 37.7112C2.05513 36.8587 1.11136 36.4095 0 36.3545ZM56.8313 24.0069C56.0551 24.8503 55.1114 25.2995 54 25.3545C55.1114 25.4095 56.0551 25.8587 56.8313 26.7112C57.6075 27.5546 57.9956 28.563 57.9956 29.7273C57.9956 28.9572 58.172 28.2513 58.5248 27.5913C58.8864 26.9312 59.3716 26.3995 59.9802 26.0053C60.5976 25.602 61.2679 25.3911 62 25.3545C60.8798 25.2903 59.9361 24.8503 59.1599 24.0069C58.3837 23.1635 57.9956 22.1642 57.9956 21C57.9956 22.1642 57.6075 23.1635 56.8313 24.0069ZM81 25.3545C82.1114 25.2995 83.0551 24.8503 83.8313 24.0069C84.6075 23.1635 84.9956 22.1642 84.9956 21C84.9956 22.1642 85.3837 23.1635 86.1599 24.0069C86.9361 24.8503 87.8798 25.2903 89 25.3545C88.2679 25.3911 87.5976 25.602 86.9802 26.0053C86.3716 26.3995 85.8864 26.9312 85.5248 27.5913C85.172 28.2513 84.9956 28.9572 84.9956 29.7273C84.9956 28.563 84.6075 27.5546 83.8313 26.7112C83.0551 25.8587 82.1114 25.4095 81 25.3545ZM136 36.3545C137.111 36.2995 138.055 35.8503 138.831 35.0069C139.607 34.1635 139.996 33.1642 139.996 32C139.996 33.1642 140.384 34.1635 141.16 35.0069C141.936 35.8503 142.88 36.2903 144 36.3545C143.268 36.3911 142.598 36.602 141.98 37.0053C141.372 37.3995 140.886 37.9312 140.525 38.5913C140.172 39.2513 139.996 39.9572 139.996 40.7273C139.996 39.563 139.607 38.5546 138.831 37.7112C138.055 36.8587 137.111 36.4095 136 36.3545ZM101.831 49.0069C101.055 49.8503 100.111 50.2995 99 50.3545C100.111 50.4095 101.055 50.8587 101.831 51.7112C102.607 52.5546 102.996 53.563 102.996 54.7273C102.996 53.9572 103.172 53.2513 103.525 52.5913C103.886 51.9312 104.372 51.3995 104.98 51.0053C105.598 50.602 106.268 50.3911 107 50.3545C105.88 50.2903 104.936 49.8503 104.16 49.0069C103.384 48.1635 102.996 47.1642 102.996 46C102.996 47.1642 102.607 48.1635 101.831 49.0069Z" fill="currentColor"></path>
+                    </svg>
+                </div>
+                <div class="theme-switch__circle-container">
+                    <div class="theme-switch__sun-moon-container">
+                        <div class="theme-switch__moon">
+                            <div class="theme-switch__spot"></div>
+                            <div class="theme-switch__spot"></div>
+                            <div class="theme-switch__spot"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </label>
+    </div>
+
+    <!-- Social Links (Right Side) -->
+    <div class="social-links-hero">
+        <a href="https://github.com/douae-abdouni" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/douae-abdouni/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    </div>
 
     <!-- Global Animated Background -->
     <div class="animated-background-global">
@@ -44,12 +86,12 @@
 <section id="hero">
 
     <div class="container">
-        <h1 class="animate__animated animate__fadeInDown">Turning Ideas into <span class="highlight">Real-Life</span> Solutions is My Calling.</h1>
+        <h1 class="animate__animated animate__fadeInDown" data-i18n-html="heroTitle">Turning Ideas into <span class="highlight">Real-Life</span> Solutions is My Calling.</h1>
         <div class="hero-subtitle animate__animated animate__fadeIn animate__delay-1s">
             <span class="typed-text"></span><span class="cursor">&nbsp;</span>
         </div>
-        <a href="#projects" class="cta-button animate__animated animate__fadeInUp animate__delay-1s">
-            <i class="fas fa-code"></i> View Projects
+        <a href="#projects" class="cta-button animate__animated animate__fadeInUp animate__delay-1s" data-i18n="viewProject">
+            <i class="fas fa-code"></i> View Project
         </a>
     </div>
 </section>
@@ -64,17 +106,11 @@
     <div class="container">
         <div class="about-content">
             <div class="about-text">
-                <h2 class="animate__animated animate__fadeIn">About Me</h2>
-                <p class="animate__animated animate__fadeIn animate__delay-1s">
-                    I'm a Computer Engineering student passionate about software
-                    development, system design, and emerging technologies. 💻✨
-                </p>
-                <p class="animate__animated animate__fadeIn animate__delay-2s">
-                    My journey in tech is driven by curiosity and a desire to create
-                    innovative solutions that make a positive impact.
-                </p>
+                <h2 class="animate__animated animate__fadeIn about-title"><span class="code-bracket">&lt;</span> Hey it's me <span class="code-bracket">/&gt;</span></h2>
+                    <p class="animate__animated animate__fadeIn animate__delay-1s about-animated" data-i18n-html="aboutLine0"><span class="highlight-text">Computer Engineering Student</span> | Developer | Problem Solver</p>
+                    <p class="animate__animated animate__fadeIn animate__delay-2s about-animated" data-i18n-html="aboutLine1">I turn <span class="highlight-text">ideas</span> into <span class="highlight-text">reality</span>. Building elegant solutions, one line of code at a time. </p>
             </div>
-            <img src="IMAGES/profile linkedin.jpg" alt="Abdouni Douae" class="profile-img animate__animated animate__fadeInRight">
+            <img src="IMAGES/me.jpeg" alt="Abdouni Douae" class="profile-img animate__animated animate__fadeInRight">
         </div>
     </div>
 </section>
@@ -82,98 +118,172 @@
 <!-- Skills Section -->
 <section id="skills">
     <div class="container">
-        <h2 class="animate__animated animate__fadeIn">Skills</h2>
+        <h2 class="animate__animated animate__fadeIn" data-i18n="skillsHeading">Skills</h2>
+
+        <!-- Filter Buttons -->
+        <div class="skills-filter">
+            <button class="filter-btn active" data-filter="all" data-i18n="filterAll">All</button>
+            <button class="filter-btn" data-filter="frontend" data-i18n="filterFrontend">Frontend</button>
+            <button class="filter-btn" data-filter="backend" data-i18n="filterBackend">Backend</button>
+            <button class="filter-btn" data-filter="database" data-i18n="filterDatabase">Database</button>
+            <button class="filter-btn" data-filter="tools" data-i18n="filterTools">Tools</button>
+            <button class="filter-btn" data-filter="soft" data-i18n="filterSoft">Soft Skills</button>
+        </div>
 
         <!-- Technical Skills -->
-        <div class="skills-category">
-            <h3>Technical Skills</h3>
+        <div class="skills-category" data-category="frontend">
+            <h3 data-i18n="frontendSkills">Frontend</h3>
             <div class="tech-badges">
-                <div class="tech-badge html">
+                <div class="tech-badge html" data-skill="frontend">
                     <i class="fab fa-html5"></i>
-                    HTML5
+                    <span data-i18n="tech_html5">HTML5</span>
                 </div>
-                <div class="tech-badge css">
+                <div class="tech-badge css" data-skill="frontend">
                     <i class="fab fa-css3-alt"></i>
-                    CSS
+                    <span data-i18n="tech_css">CSS</span>
                 </div>
-                <div class="tech-badge javascript">
+                <div class="tech-badge javascript" data-skill="frontend">
                     <i class="fab fa-js-square"></i>
-                    JavaScript
+                    <span data-i18n="tech_js">JavaScript</span>
                 </div>
-                <div class="tech-badge php">
-                    <i class="fab fa-php"></i>
-                    PHP
-                </div>
-                <div class="tech-badge bootstrap">
+                <div class="tech-badge bootstrap" data-skill="frontend">
                     <i class="fab fa-bootstrap"></i>
-                    Bootstrap
+                    <span data-i18n="tech_bootstrap">Bootstrap</span>
                 </div>
-                <div class="tech-badge mvc">
+            </div>
+        </div>
+
+        <!-- Backend Skills -->
+        <div class="skills-category" data-category="backend">
+            <h3 data-i18n="backendSkills">Backend</h3>
+            <div class="tech-badges">
+                <div class="tech-badge php" data-skill="backend">
+                    <i class="fab fa-php"></i>
+                    <span data-i18n="tech_php">PHP</span>
+                </div>
+                <div class="tech-badge python" data-skill="backend">
+                    <i class="fab fa-python"></i>
+                    <span>Django</span>
+                </div>
+                <div class="tech-badge mvc" data-skill="backend">
                     <i class="fas fa-layer-group"></i>
-                    MVC Architecture
+                    <span data-i18n="tech_mvc">MVC Architecture</span>
                 </div>
-                <div class="tech-badge c">
+            </div>
+        </div>
+
+        <!-- Programming Languages -->
+        <div class="skills-category" data-category="backend">
+            <h3 data-i18n="progLanguages">Programming Languages</h3>
+            <div class="tech-badges">
+                <div class="tech-badge c" data-skill="backend">
                     <i class="fas fa-code"></i>
-                    C
+                    <span data-i18n="tech_c">C</span>
                 </div>
-                <div class="tech-badge cpp">
+                <div class="tech-badge cpp" data-skill="backend">
                     <i class="fas fa-code"></i>
-                    C++
+                    <span data-i18n="tech_cpp">C++</span>
                 </div>
-                <div class="tech-badge qt">
-                    <i class="fas fa-desktop"></i>
-                    Qt Framework
+                <div class="tech-badge python" data-skill="backend">
+                    <i class="fab fa-python"></i>
+                    <span>Python</span>
                 </div>
-                <div class="tech-badge mysql">
+                <div class="tech-badge java" data-skill="backend">
+                    <i class="fab fa-java"></i>
+                    <span>Java</span>
+                </div>
+                <div class="tech-badge swing" data-skill="backend">
+                    <i class="fas fa-window-maximize"></i>
+                    <span>Swing</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Database Skills -->
+        <div class="skills-category" data-category="database">
+            <h3 data-i18n="databaseSkills">Database</h3>
+            <div class="tech-badges">
+                <div class="tech-badge mysql" data-skill="database">
                     <i class="fas fa-database"></i>
-                    MySQL
+                    <span data-i18n="tech_mysql">MySQL</span>
                 </div>
-                <div class="tech-badge vscode">
-                    <i class="fas fa-code"></i>
-                    VS Code
+                <div class="tech-badge postgresql" data-skill="database">
+                    <i class="fas fa-database"></i>
+                    <span>PostgreSQL</span>
                 </div>
-                <div class="tech-badge matlab">
+                <div class="tech-badge mongodb" data-skill="database">
+                    <i class="fas fa-database"></i>
+                    <span>MongoDB</span>
+                </div>
+                <div class="tech-badge oracle" data-skill="database">
+                    <i class="fas fa-database"></i>
+                    <span>Oracle Database</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tools & Others -->
+        <div class="skills-category" data-category="tools">
+            <h3 data-i18n="toolsSkills">Tools & Others</h3>
+            <div class="tech-badges">
+                <div class="tech-badge qt" data-skill="tools">
+                    <i class="fas fa-desktop"></i>
+                    <span data-i18n="tech_qt">Qt Framework</span>
+                </div>
+                <div class="tech-badge matlab" data-skill="tools">
                     <i class="fas fa-calculator"></i>
-                    MATLAB
+                    <span data-i18n="tech_matlab">MATLAB</span>
                 </div>
-                <div class="tech-badge git">
+                <div class="tech-badge vscode" data-skill="tools">
+                    <i class="fas fa-code"></i>
+                    <span data-i18n="tech_vscode">VS Code</span>
+                </div>
+                <div class="tech-badge git" data-skill="tools">
                     <i class="fab fa-git-alt"></i>
-                    Git
+                    <span data-i18n="tech_git">Git</span>
                 </div>
-                <div class="tech-badge github">
+                <div class="tech-badge github" data-skill="tools">
                     <i class="fab fa-github"></i>
-                    GitHub
+                    <span data-i18n="tech_github">GitHub</span>
+                </div>
+                <div class="tech-badge linux" data-skill="tools">
+                    <i class="fab fa-linux"></i>
+                    <span>Linux</span>
+                </div>
+                <div class="tech-badge uml" data-skill="tools">
+                    <i class="fas fa-project-diagram"></i>
+                    <span>UML</span>
                 </div>
             </div>
         </div>
 
         <!-- Soft Skills -->
-        <div class="skills-category">
-            <h3>Soft Skills</h3>
+        <div class="skills-category" data-category="soft">
+            <h3 data-i18n="softSkills">Soft Skills</h3>
             <div class="tech-badges">
-                <div class="tech-badge soft-skill">
+                <div class="tech-badge soft-skill" data-skill="soft">
                     <i class="fas fa-users"></i>
-                    Teamwork
+                    <span data-i18n="soft_teamwork">Teamwork</span>
                 </div>
-                <div class="tech-badge soft-skill">
+                <div class="tech-badge soft-skill" data-skill="soft">
                     <i class="fas fa-comments"></i>
-                    Communication
+                    <span data-i18n="soft_communication">Communication</span>
                 </div>
-                <div class="tech-badge soft-skill">
+                <div class="tech-badge soft-skill" data-skill="soft">
                     <i class="fas fa-puzzle-piece"></i>
-                    Problem Solving
+                    <span data-i18n="soft_problem">Problem Solving</span>
                 </div>
-                <div class="tech-badge soft-skill">
+                <div class="tech-badge soft-skill" data-skill="soft">
                     <i class="fas fa-clock"></i>
-                    Time Management
+                    <span data-i18n="soft_time">Time Management</span>
                 </div>
-                <div class="tech-badge soft-skill">
+                <div class="tech-badge soft-skill" data-skill="soft">
                     <i class="fas fa-sync-alt"></i>
-                    Adaptability
+                    <span data-i18n="soft_adaptability">Adaptability</span>
                 </div>
-                <div class="tech-badge soft-skill">
+                <div class="tech-badge soft-skill" data-skill="soft">
                     <i class="fas fa-crown"></i>
-                    Leadership
+                    <span data-i18n="soft_leadership">Leadership</span>
                 </div>
             </div>
         </div>
@@ -183,27 +293,78 @@
 <!-- Languages Section -->
 <section id="languages">
     <div class="container">
-        <h2 class="animate__animated animate__fadeIn">Languages</h2>
+        <h2 class="animate__animated animate__fadeIn" data-i18n="languagesHeading">Languages</h2>
 
         <!-- Language Proficiency -->
-        <div class="skills-category">
-            <h3>Language Proficiency</h3>
-            <div class="tech-badges">
-                <div class="tech-badge language-fluent">
-                    <i class="fas fa-globe-americas"></i>
-                    English - Fluent
+        <div class="languages-container">
+            <h3 data-i18n="languageProf">Language Proficiency</h3>
+            <div class="languages-grid">
+                <div class="language-card fluent">
+                    <div class="flag">🇺🇸</div>
+                    <span class="lang-name" data-i18n="lang_english_fluent">English - Fluent</span>
                 </div>
-                <div class="tech-badge language-fluent">
-                    <i class="fas fa-globe-europe"></i>
-                    French - Fluent
+                <div class="language-card fluent">
+                    <div class="flag">🇫🇷</div>
+                    <span class="lang-name" data-i18n="lang_french_fluent">French - Fluent</span>
                 </div>
-                <div class="tech-badge language-beginner">
-                    <i class="fas fa-globe"></i>
-                    Spanish - Beginner
+                <div class="language-card beginner">
+                    <div class="flag">🇪🇸</div>
+                    <span class="lang-name" data-i18n="lang_spanish_beginner">Spanish - Beginner</span>
                 </div>
-                <div class="tech-badge language-beginner">
-                    <i class="fas fa-globe-asia"></i>
-                    Turkish - Beginner
+                <div class="language-card beginner">
+                    <div class="flag">🇹🇷</div>
+                    <span class="lang-name" data-i18n="lang_turkish_beginner">Turkish - Beginner</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Professional Experience Section -->
+<section id="experience">
+    <div class="container">
+        <h2 class="animate__animated animate__fadeIn" data-i18n="experienceHeading">Professional Experience</h2>
+        <div class="experience-timeline">
+            <!-- Experience 1 - Guidya -->
+            <div class="experience-card">
+                <div class="experience-header">
+                    <h3>Guidya</h3>
+                    <span class="position">Full-Stack Developer Intern</span>
+                </div>
+                <div class="experience-date">
+                    <i class="fas fa-calendar-alt"></i>
+                    07/2025 – 08/2025 | Casablanca-Remote
+                </div>
+                <ul class="experience-details">
+                    <li>Developed HR tech features with Django, DRF, React, JS, PostgreSQL</li>
+                    <li>Designed backend, APIs using agile, scalable practices</li>
+                </ul>
+                <div class="experience-tags">
+                    <span class="tag">Django</span>
+                    <span class="tag">React</span>
+                    <span class="tag">PostgreSQL</span>
+                    <span class="tag">REST API</span>
+                </div>
+            </div>
+
+            <!-- Experience 2 - Affinity Digital Marketing -->
+            <div class="experience-card">
+                <div class="experience-header">
+                    <h3>Affinity Digital Marketing</h3>
+                    <span class="position">Digital Marketing Intern</span>
+                </div>
+                <div class="experience-date">
+                    <i class="fas fa-calendar-alt"></i>
+                    07/2024 – 08/2024 | Cabo-Negro, On-Site
+                </div>
+                <ul class="experience-details">
+                    <li>Handled multiple tasks efficiently in fast-paced settings, meeting deadlines</li>
+                    <li>Gained strong communication and adaptability skills through team projects</li>
+                </ul>
+                <div class="experience-tags">
+                    <span class="tag">Marketing</span>
+                    <span class="tag">Communication</span>
+                    <span class="tag">Teamwork</span>
                 </div>
             </div>
         </div>
@@ -213,35 +374,126 @@
 <!-- Projects Section -->
 <section id="projects">
     <div class="container">
-        <h2 class="animate__animated animate__fadeIn">My <span>Projects</span></h2>
-        <p class="subtitle">Featured work I've built and designed</p>
+        <h2 class="animate__animated animate__fadeIn" data-i18n-html="projectsHeading">My <span>Projects</span></h2>
+        <p class="subtitle" data-i18n="projectsSubtitle">Featured work I've built and designed</p>
 
         <!-- Project 1 -->
         <div class="project-item">
             <div class="project-number">01</div>
             <div class="project-content">
-                <h3 class="project-title">University Management System (Web Application)</h3>
-                <p class="project-description">
-                    A role-based university management system designed to streamline academic and administrative tasks. Features separate interfaces for different user roles including Admins, Coordinators, and Professors. Built with MVC architecture for scalability and efficient code organization.
-                </p>
+                <h3 class="project-title" data-i18n="proj1_title">E-Commerce Visual Search & Recommendation Platform</h3>
+                <p class="project-description" data-i18n="proj1_desc">A full-stack e-commerce solution enabling users to discover products through image-based search and intelligent recommendations. Features visual image search capabilities, ASIN-based product suggestions, real-time text search with filtering, and optimized performance with advanced ML techniques.</p>
                 <div class="tech-stack">
                     <div class="tech-stack-label">Tech Stack</div>
                     <div class="tech-badges">
-                        <span class="tech-badge html"><i class="fab fa-html5"></i>HTML</span>
-                        <span class="tech-badge css"><i class="fab fa-css3-alt"></i>CSS</span>
-                        <span class="tech-badge bootstrap"><i class="fab fa-bootstrap"></i>Bootstrap</span>
-                        <span class="tech-badge php"><i class="fab fa-php"></i>PHP</span>
-                        <span class="tech-badge mvc"><i class="fas fa-layer-group"></i>MVC</span>
-                        <span class="tech-badge mysql"><i class="fas fa-database"></i>MySQL</span>
-                        <span class="tech-badge javascript"><i class="fab fa-js-square"></i>JavaScript</span>
+                        <span class="tech-badge python"><i class="fab fa-python"></i><span data-i18n="tech_python">Django</span></span>
+                        <span class="tech-badge tailwind"><i class="fas fa-palette"></i><span data-i18n="tech_tailwind">Tailwind CSS</span></span>
+                        <span class="tech-badge ml"><i class="fas fa-brain"></i><span data-i18n="tech_ml">MobileNetV2</span></span>
                     </div>
                 </div>
                 <div class="project-actions">
-                    <a href="#" target="_blank" class="button project-link" data-tooltip="View Project">
+                    <a href="https://github.com/douae-abdouni/e-commerce" target="_blank" class="button project-link" data-tooltip="View on GitHub" data-i18n-html="viewProjectBtn">
                         <div class="button-wrapper">
-                            <div class="text">View Project</div>
+                            <div class="text" data-i18n="viewProject">View Project</div>
                             <div class="icon">
-                                <i class="fas fa-external-link-alt"></i>
+                                <i class="fab fa-github"></i>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="project-image">
+                <img src="IMAGES/e-commerce.png" alt="E-Commerce Visual Search Platform">
+            </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-item">
+            <div class="project-number">02</div>
+            <div class="project-content">
+                <h3 class="project-title" data-i18n="proj2_title">CoffeeMeet — Modern HR Platform</h3>
+                <p class="project-description" data-i18n="proj2_desc">Development of a modern HR platform designed to improve employee integration and interaction within an organization. The project was based on a full-stack architecture, combining a frontend developed in React.js with Tailwind CSS for the user interface, and a backend based on Django REST Framework with a PostgreSQL database.</p>
+                <div class="tech-stack">
+                    <div class="tech-stack-label">Tech Stack</div>
+                    <div class="tech-badges">
+                        <span class="tech-badge react"><i class="fab fa-react"></i><span data-i18n="tech_react">React.js</span></span>
+                        <span class="tech-badge tailwind"><i class="fas fa-palette"></i><span data-i18n="tech_tailwind">Tailwind CSS</span></span>
+                        <span class="tech-badge python"><i class="fab fa-python"></i><span data-i18n="tech_python">Django REST</span></span>
+                        <span class="tech-badge postgresql"><i class="fas fa-database"></i><span data-i18n="tech_postgresql">PostgreSQL</span></span>
+                    </div>
+                </div>
+                <div class="project-actions">
+                    <a href="#" target="_blank" class="button project-link" data-tooltip="View on GitHub" data-i18n-html="viewProjectBtn">
+                        <div class="button-wrapper">
+                            <div class="text" data-i18n="viewProject">View Project</div>
+                            <div class="icon">
+                                <i class="fab fa-github"></i>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="project-image">
+                <img src="IMAGES/coffeeMeet.jpeg" alt="CoffeeMeet HR Platform">
+            </div>
+        </div>
+
+        <!-- Project 3 - RPS -->
+        <div class="project-item">
+            <div class="project-number">03</div>
+            <div class="project-content">
+                <h3 class="project-title" data-i18n="proj3_title">Rock-Paper-Scissors (RPS) ML Game</h3>
+                <p class="project-description" data-i18n="proj3_desc">A real-time computer vision application that detects hand gestures to play Rock-Paper-Scissors against an AI opponent. Built with Python, TensorFlow, MediaPipe, OpenCV, NumPy, and Pillow for advanced hand gesture recognition and machine learning-powered gameplay.</p>
+                <div class="tech-stack">
+                    <div class="tech-stack-label">Tech Stack</div>
+                    <div class="tech-badges">
+                        <span class="tech-badge python"><i class="fab fa-python"></i><span>Python</span></span>
+                        <span class="tech-badge python"><i class="fas fa-brain"></i><span>TensorFlow</span></span>
+                        <span class="tech-badge python"><i class="fas fa-eye"></i><span>MediaPipe</span></span>
+                        <span class="tech-badge python"><i class="fas fa-image"></i><span>OpenCV</span></span>
+                        <span class="tech-badge python"><i class="fas fa-calculator"></i><span>NumPy</span></span>
+                    </div>
+                </div>
+                <div class="project-actions">
+                    <a href="#" target="_blank" class="button project-link" data-tooltip="View on GitHub" data-i18n-html="viewProjectBtn">
+                        <div class="button-wrapper">
+                            <div class="text" data-i18n="viewProject">View Project</div>
+                            <div class="icon">
+                                <i class="fab fa-github"></i>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="project-image">
+                <img src="IMAGES/RPS PROJECT.png" alt="Rock-Paper-Scissors ML Game">
+            </div>
+        </div>
+
+        <!-- Project 4 (was 3) -->
+        <div class="project-item">
+            <div class="project-number">04</div>
+            <div class="project-content">
+                <h3 class="project-title" data-i18n="proj4_title">University Management System (Web Application)</h3>
+                <p class="project-description" data-i18n="proj3_desc">A role-based university management system designed to streamline academic and administrative tasks. Features separate interfaces for different user roles including Admins, Coordinators, and Professors. Built with MVC architecture for scalability and efficient code organization.</p>
+                <div class="tech-stack">
+                    <div class="tech-stack-label" data-i18n="techStackLabel">Tech Stack</div>
+                    <div class="tech-badges">
+                        <span class="tech-badge html"><i class="fab fa-html5"></i><span data-i18n="tech_html5">HTML</span></span>
+                        <span class="tech-badge css"><i class="fab fa-css3-alt"></i><span data-i18n="tech_css">CSS</span></span>
+                        <span class="tech-badge bootstrap"><i class="fab fa-bootstrap"></i><span data-i18n="tech_bootstrap">Bootstrap</span></span>
+                        <span class="tech-badge php"><i class="fab fa-php"></i><span data-i18n="tech_php">PHP</span></span>
+                        <span class="tech-badge mvc"><i class="fas fa-layer-group"></i><span data-i18n="tech_mvc">MVC</span></span>
+                        <span class="tech-badge mysql"><i class="fas fa-database"></i><span data-i18n="tech_mysql">MySQL</span></span>
+                        <span class="tech-badge javascript"><i class="fab fa-js-square"></i><span data-i18n="tech_js">JavaScript</span></span>
+                    </div>
+                </div>
+                <div class="project-actions">
+                    <a href="https://github.com/douae-abdouni/Web-Project" target="_blank" class="button project-link" data-tooltip="View on GitHub" data-i18n-html="viewProjectBtn">
+                        <div class="button-wrapper">
+                            <div class="text" data-i18n="viewProject">View Project</div>
+                            <div class="icon">
+                                <i class="fab fa-github"></i>
                             </div>
                         </div>
                     </a>
@@ -252,28 +504,26 @@
             </div>
         </div>
 
-        <!-- Project 2 -->
+        <!-- Project 5 (was 4) -->
         <div class="project-item">
-            <div class="project-number">02</div>
+            <div class="project-number">05</div>
             <div class="project-content">
-                <h3 class="project-title">PixelPress — Smart Media Compression Tool</h3>
-                <p class="project-description">
-                    A cross-platform desktop application for efficient image and video compression with drag & drop support. Built with C++ and Qt framework featuring animated UI, MySQL database integration, and FFmpeg for media processing. Includes compression history tracking and support for both local and remote files.
-                </p>
+                <h3 class="project-title" data-i18n="proj4_title">PixelPress — Smart Media Compression Tool</h3>
+                <p class="project-description" data-i18n="proj4_desc">A cross-platform desktop application for efficient image and video compression with drag & drop support. Built with C++ and Qt framework featuring animated UI, MySQL database integration, and FFmpeg for media processing. Includes compression history tracking and support for both local and remote files.</p>
                 <div class="tech-stack">
                     <div class="tech-stack-label">Tech Stack</div>
                     <div class="tech-badges">
-                        <span class="tech-badge cpp"><i class="fas fa-code"></i>C++</span>
-                        <span class="tech-badge qt"><i class="fas fa-desktop"></i>Qt</span>
-                        <span class="tech-badge mysql"><i class="fas fa-database"></i>MySQL</span>
+                        <span class="tech-badge cpp"><i class="fas fa-code"></i><span data-i18n="tech_cpp">C++</span></span>
+                        <span class="tech-badge qt"><i class="fas fa-desktop"></i><span data-i18n="tech_qt">Qt</span></span>
+                        <span class="tech-badge mysql"><i class="fas fa-database"></i><span data-i18n="tech_mysql">MySQL</span></span>
                     </div>
                 </div>
                 <div class="project-actions">
-                    <a href="https://github.com/douae-abdouni/QT-Project" target="_blank" class="button project-link" data-tooltip="View Project">
+                    <a href="https://github.com/douae-abdouni/QT-Project" target="_blank" class="button project-link" data-tooltip="View on GitHub" data-i18n-html="viewProjectBtn">
                         <div class="button-wrapper">
-                            <div class="text">View Project</div>
+                            <div class="text" data-i18n="viewProject">View Project</div>
                             <div class="icon">
-                                <i class="fas fa-external-link-alt"></i>
+                                <i class="fab fa-github"></i>
                             </div>
                         </div>
                     </a>
@@ -284,58 +534,23 @@
             </div>
         </div>
 
-        <!-- Project 3 -->
+        <!-- Project 6 (was 5) -->
         <div class="project-item">
-            <div class="project-number">03</div>
+            <div class="project-number">06</div>
             <div class="project-content">
-                <h3 class="project-title">Travel Landing Page</h3>
-                <p class="project-description">
-                    A fully responsive landing page for travel, built using HTML and CSS.
-                    Features modern design elements, smooth animations, and mobile-friendly layout.
-                </p>
+                <h3 class="project-title" data-i18n="proj6_title">Hijabs & Abayas Store</h3>
+                <p class="project-description" data-i18n="proj6_desc">A responsive landing page for a hijabs and abayas store, built using HTML and CSS. Includes product showcases, elegant design, and smooth user experience.</p>
                 <div class="tech-stack">
                     <div class="tech-stack-label">Tech Stack</div>
                     <div class="tech-badges">
-                        <span class="tech-badge html"><i class="fab fa-html5"></i>HTML</span>
-                        <span class="tech-badge css"><i class="fab fa-css3-alt"></i>CSS</span>
+                        <span class="tech-badge html"><i class="fab fa-html5"></i><span data-i18n="tech_html5">HTML</span></span>
+                        <span class="tech-badge css"><i class="fab fa-css3-alt"></i><span data-i18n="tech_css">CSS</span></span>
                     </div>
                 </div>
                 <div class="project-actions">
-                    <a href="https://github.com/douae-abdouni/HTML-CSS-" target="_blank" class="button project-link" data-tooltip="View on GitHub">
+                    <a href="https://github.com/douae-abdouni/HTML-CSS" target="_blank" class="button project-link" data-tooltip="View on GitHub" data-i18n-html="viewProjectBtn">
                         <div class="button-wrapper">
-                            <div class="text">View Project</div>
-                            <div class="icon">
-                                <i class="fab fa-github"></i>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="project-image">
-                <img src="IMAGES/Screenshot 2025-02-26 113458.png" alt="HTML&CSS">
-            </div>
-        </div>
-
-        <!-- Project 4 -->
-        <div class="project-item">
-            <div class="project-number">04</div>
-            <div class="project-content">
-                <h3 class="project-title">Hijabs & Abayas Store</h3>
-                <p class="project-description">
-                    A responsive landing page for a hijabs and abayas store, built using HTML and CSS.
-                    Includes product showcases, elegant design, and smooth user experience.
-                </p>
-                <div class="tech-stack">
-                    <div class="tech-stack-label">Tech Stack</div>
-                    <div class="tech-badges">
-                        <span class="tech-badge html"><i class="fab fa-html5"></i>HTML</span>
-                        <span class="tech-badge css"><i class="fab fa-css3-alt"></i>CSS</span>
-                    </div>
-                </div>
-                <div class="project-actions">
-                    <a href="https://github.com/douae-abdouni/HTML-CSS" target="_blank" class="button project-link" data-tooltip="View on GitHub">
-                        <div class="button-wrapper">
-                            <div class="text">View Project</div>
+                            <div class="text" data-i18n="viewProject">View Project</div>
                             <div class="icon">
                                 <i class="fab fa-github"></i>
                             </div>
@@ -348,58 +563,23 @@
             </div>
         </div>
 
-        <!-- Project 5 -->
+        <!-- Project 7 (was 6) -->
         <div class="project-item">
-            <div class="project-number">05</div>
+            <div class="project-number">07</div>
             <div class="project-content">
-                <h3 class="project-title">Admin Dashboard</h3>
-                <p class="project-description">
-                    A fully responsive dashboard interface built using HTML and CSS.
-                    Features data visualization components, navigation system, and user-friendly controls.
-                </p>
+                <h3 class="project-title" data-i18n="proj8_title">Amanlines Travel Agency</h3>
+                <p class="project-description" data-i18n="proj8_desc">A terminal-based application built in C for managing travel bookings and customer data. Includes features for booking management, customer records, and reporting.</p>
                 <div class="tech-stack">
                     <div class="tech-stack-label">Tech Stack</div>
                     <div class="tech-badges">
-                        <span class="tech-badge html"><i class="fab fa-html5"></i>HTML</span>
-                        <span class="tech-badge css"><i class="fab fa-css3-alt"></i>CSS</span>
+                        <span class="tech-badge c"><i class="fas fa-code"></i><span data-i18n="tech_c">C</span></span>
+                        <span class="tech-badge vscode"><i class="fas fa-code"></i><span data-i18n="tech_vscode">VS Code</span></span>
                     </div>
                 </div>
                 <div class="project-actions">
-                    <a href="https://github.com/douae-abdouni/HTML-CSS-3" target="_blank" class="button project-link" data-tooltip="View on GitHub">
+                    <a href="https://github.com/douae-abdouni/Project-C-" target="_blank" class="button project-link" data-tooltip="View on GitHub" data-i18n-html="viewProjectBtn">
                         <div class="button-wrapper">
-                            <div class="text">View Project</div>
-                            <div class="icon">
-                                <i class="fab fa-github"></i>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="project-image">
-                <img src="IMAGES/Screenshot 2025-02-26 113923.png" alt="HTML/CSS">
-            </div>
-        </div>
-
-        <!-- Project 6 -->
-        <div class="project-item">
-            <div class="project-number">06</div>
-            <div class="project-content">
-                <h3 class="project-title">Amanlines Travel Agency</h3>
-                <p class="project-description">
-                    A terminal-based application built in C for managing travel bookings and customer data.
-                    Includes features for booking management, customer records, and reporting.
-                </p>
-                <div class="tech-stack">
-                    <div class="tech-stack-label">Tech Stack</div>
-                    <div class="tech-badges">
-                        <span class="tech-badge c"><i class="fas fa-code"></i>C</span>
-                        <span class="tech-badge vscode"><i class="fas fa-code"></i>VS Code</span>
-                    </div>
-                </div>
-                <div class="project-actions">
-                    <a href="https://github.com/douae-abdouni/Project-C-" target="_blank" class="button project-link" data-tooltip="View on GitHub">
-                        <div class="button-wrapper">
-                            <div class="text">View Project</div>
+                            <div class="text" data-i18n="viewProject">View Project</div>
                             <div class="icon">
                                 <i class="fab fa-github"></i>
                             </div>
@@ -414,56 +594,139 @@
     </div>
 </section>
 
+<!-- Education Section -->
+<section id="education">
+    <div class="container">
+        <h2 class="animate__animated animate__fadeIn" data-i18n="educationHeading">Education</h2>
+        <div class="education-timeline">
+            <!-- Education Entry 1 - Computer Engineering -->
+            <div class="education-entry education-entry-right">
+                    <div class="education-marker"></div>
+                <div class="education-card">
+                    <div class="education-header">
+                        <h3 data-i18n="comp_eng_degree">Computer Engineering Cycle</h3>
+                        <span class="education-status ongoing" data-i18n="statusOngoing">Ongoing</span>
+                    </div>
+                    <p class="education-institution"><i class="fas fa-map-marker-alt"></i> <span data-i18n="ensah_name">National School of Applied Sciences, Al Hoceima (ENSAH)</span></p>
+                    <p class="education-date">
+                        <i class="far fa-calendar"></i>
+                        <span data-i18n="comp_eng_period">September 2024 - Present</span>
+                    </p>
+                    <p class="education-description" data-i18n="comp_eng_desc">Pursuing a comprehensive engineering degree specializing in web development, advanced algorithms, artificial intelligence, and embedded systems technologies.</p>
+                </div>
+            </div>
+
+            <!-- Education Entry 2 - Preparatory Cycle -->
+            <div class="education-entry education-entry-left">
+                <div class="education-marker"></div>
+                <div class="education-card">
+                    <div class="education-header">
+                        <h3 data-i18n="prep_cycle_degree">Two-Year Preparatory Cycle</h3>
+                        <span class="education-status completed" data-i18n="statusCompleted">Completed</span>
+                    </div>
+                    <p class="education-institution"><i class="fas fa-map-marker-alt"></i> <span data-i18n="ensah_name">National School of Applied Sciences, Al Hoceima (ENSAH)</span></p>
+                    <p class="education-date">
+                        <i class="far fa-calendar"></i>
+                        <span data-i18n="prep_cycle_period">September 2022 - June 2024</span>
+                    </p>
+                    <p class="education-description" data-i18n="prep_cycle_desc">Completed rigorous foundational studies in advanced mathematics, physics, and computer science, establishing a strong technical foundation for engineering coursework.</p>
+                </div>
+            </div>
+
+            <!-- Education Entry 3 - Baccalaureate -->
+            <div class="education-entry education-entry-right">
+                <div class="education-marker"></div>
+                <div class="education-card">
+                    <div class="education-header">
+                        <h3 data-i18n="bac_degree">Baccalaureate in Mathematical Sciences</h3>
+                        <span class="education-status completed" data-i18n="statusCompleted">Completed</span>
+                    </div>
+                    <p class="education-institution"><i class="fas fa-map-marker-alt"></i> <span data-i18n="lycee_name">Lycée Mohammed VI</span></p>
+                    <p class="education-date">
+                        <i class="far fa-calendar"></i>
+                        <span data-i18n="bac_period">September 2019 - June 2022</span>
+                    </p>
+                    <p class="education-description" data-i18n="bac_desc">Successfully completed secondary education with distinction, specializing in mathematical sciences with French language emphasis. Earned a robust foundation in mathematics and physics essential for engineering studies.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- Certifications Section -->
 <section id="certifications">
     <div class="container">
-        <h2 class="animate__animated animate__fadeIn">Certifications <i class="fas fa-certificate"></i></h2>
+        <h2 class="animate__animated animate__fadeIn" data-i18n-html="certsHeading">Certifications <i class="fas fa-certificate"></i></h2>
         <div class="certifications-grid">
-            <!-- Certification 1 -->
+            <!-- Certification 1 - IBM AI Fundamentals -->
             <div class="certification">
-                <img src="IMAGES/HTML UDEMY_page-0001.jpg" alt="Certification 1">
-                <h3>HTML & CSS</h3>
-                <p><i class="fas fa-certificate"></i> Issued by: UDEMY</p>
-                <p><i class="fas fa-calendar-alt"></i> Date: 02/2025</p>
+                <img src="IMAGES/IBM AI FUNDAMENTALS.png" alt="IBM AI Fundamentals">
+                <h3 data-i18n="ibmAiFundamentals">IBM AI Fundamentals</h3>
+                <p data-i18n-html="cert_issuer_ibm2"><i class="fas fa-certificate"></i> <span data-i18n="issuedBy">Issued by:</span> <span data-i18n="ibm">IBM</span></p>
+                <p data-i18n-html="cert_date_ibm_fund"><i class="fas fa-calendar-alt"></i> <span data-i18n="date">Date:</span> 2026</p>
             </div>
 
-            <!-- Certification 2 -->
+            <!-- Certification 2 - IBM AI Literacy -->
             <div class="certification">
-                <img src="IMAGES/sql_intermediate certificate_page-0001.jpg" alt="Certification 2">
-                <h3>Intermediate SQL</h3>
-                <p><i class="fas fa-certificate"></i> Issued by: HACKERRANK</p>
-                <p><i class="fas fa-calendar-alt"></i> Date: 01/2025</p>
+                <img src="IMAGES/IBM AI LITERACY .png" alt="IBM AI Literacy">
+                <h3 data-i18n="ibmAiLiteracy">IBM AI Literacy</h3>
+                <p data-i18n-html="cert_issuer_ibm"><i class="fas fa-certificate"></i> <span data-i18n="issuedBy">Issued by:</span> <span data-i18n="ibm">IBM</span></p>
+                <p data-i18n-html="cert_date_ibm_lit"><i class="fas fa-calendar-alt"></i> <span data-i18n="date">Date:</span> 2026</p>
             </div>
 
-            <!-- Certification 3 -->
+            <!-- Certification 3 - Django Udemy -->
             <div class="certification">
-                <img src="IMAGES/CertificateOfCompletion_Programming Foundations Fundamentals_page-0001.jpg" alt="Certification 3">
-                <h3>Programming Foundations</h3>
-                <p><i class="fas fa-certificate"></i> Issued by:LINKEDIN </p>
-                <p><i class="fas fa-calendar-alt"></i> Date: 11/2024</p>
+                <img src="IMAGES/Django Udemy certificate .jpg" alt="Python Django Certificate">
+                <h3 data-i18n="djangoUdemy">Python Django</h3>
+                <p data-i18n-html="cert_issuer_django"><i class="fas fa-certificate"></i> <span data-i18n="issuedBy">Issued by:</span> <span data-i18n="udemy">UDEMY</span></p>
+                <p data-i18n-html="cert_date_django"><i class="fas fa-calendar-alt"></i> <span data-i18n="date">Date:</span> 2026</p>
             </div>
 
             <!-- Certification 4 -->
             <div class="certification">
-                <img src="IMAGES/simpllearn certificate cloud_page-0001.jpg" alt="Certification 4">
-                <h3>Cloud Computing</h3>
-                <p><i class="fas fa-certificate"></i> Issued by: SIMPLILEARN</p>
-                <p><i class="fas fa-calendar-alt"></i> Date: 01/2025</p>
+                <img src="IMAGES/HTML UDEMY_page-0001.jpg" alt="Certification 1">
+                <h3 data-i18n="htmlCss">HTML & CSS</h3>
+                <p data-i18n-html="cert_issuer_udemy"><i class="fas fa-certificate"></i> <span data-i18n="issuedBy">Issued by:</span> <span data-i18n="udemy">UDEMY</span></p>
+                <p data-i18n-html="cert_date_htmlcss"><i class="fas fa-calendar-alt"></i> <span data-i18n="date">Date:</span> 02/2025</p>
             </div>
-           <!-- Certification 5 -->
+
+            <!-- Certification 5 -->
             <div class="certification">
-                <img src="IMAGES/delfB2.png" alt="Certification 5">
-                <h3>DELF B2</h3>
-                <p><i class="fas fa-certificate"></i> Issued by:Ministry of National Education, Youth and Sports</p>
-                <p><i class="fas fa-calendar-alt"></i> Date: 17/01/2022</p>
+                <img src="IMAGES/sql_intermediate certificate_page-0001.jpg" alt="Certification 2">
+                <h3 data-i18n="intermediateSql">Intermediate SQL</h3>
+                <p data-i18n-html="cert_issuer_hackerrank"><i class="fas fa-certificate"></i> <span data-i18n="issuedBy">Issued by:</span> <span data-i18n="hackerrank">HACKERRANK</span></p>
+                <p data-i18n-html="cert_date_sql"><i class="fas fa-calendar-alt"></i> <span data-i18n="date">Date:</span> 01/2025</p>
             </div>
 
             <!-- Certification 6 -->
             <div class="certification">
+                <img src="IMAGES/CertificateOfCompletion_Programming Foundations Fundamentals_page-0001.jpg" alt="Certification 3">
+                <h3 data-i18n="programmingFoundations">Programming Foundations</h3>
+                <p data-i18n-html="cert_issuer_linkedin"><i class="fas fa-certificate"></i> <span data-i18n="issuedBy">Issued by:</span> <span data-i18n="linkedin">LINKEDIN</span></p>
+                <p data-i18n-html="cert_date_prog_foundations"><i class="fas fa-calendar-alt"></i> <span data-i18n="date">Date:</span> 11/2024</p>
+            </div>
+
+            <!-- Certification 7 -->
+            <div class="certification">
+                <img src="IMAGES/simpllearn certificate cloud_page-0001.jpg" alt="Certification 4">
+                <h3 data-i18n="cloudComputing">Cloud Computing</h3>
+                <p data-i18n-html="cert_issuer_simplilearn"><i class="fas fa-certificate"></i> <span data-i18n="issuedBy">Issued by:</span> <span data-i18n="simplilearn">SIMPLILEARN</span></p>
+                <p data-i18n-html="cert_date_cloud"><i class="fas fa-calendar-alt"></i> <span data-i18n="date">Date:</span> 01/2025</p>
+            </div>
+           <!-- Certification 8 -->
+            <div class="certification">
+                <img src="IMAGES/delfB2.png" alt="Certification 5">
+                <h3 data-i18n="delfB2">DELF B2</h3>
+                <p data-i18n-html="cert_issuer_delf"><i class="fas fa-certificate"></i> <span data-i18n="issuedBy">Issued by:</span> <span data-i18n="ministry">Ministry of National Education, Youth and Sports</span></p>
+                <p data-i18n-html="cert_date_delf"><i class="fas fa-calendar-alt"></i> <span data-i18n="date">Date:</span> 17/01/2022</p>
+            </div>
+
+            <!-- Certification 9 -->
+            <div class="certification">
                 <img src="IMAGES/SPANISH_CERT.png" alt="Spanish Certificate">
-                <h3>Spanish Language Certificate</h3>
-                <p><i class="fas fa-certificate"></i> Issued by: Strommen</p>
-                <p><i class="fas fa-calendar-alt"></i> Date: 2025</p>
+                <h3 data-i18n="spanishLangCert">Spanish Language Certificate</h3>
+                <p data-i18n-html="cert_issuer_spanish"><i class="fas fa-certificate"></i> <span data-i18n="issuedBy">Issued by:</span> <span data-i18n="strommen">Strommen</span></p>
+                <p data-i18n-html="cert_date_spanish"><i class="fas fa-calendar-alt"></i> <span data-i18n="date">Date:</span> 2025</p>
             </div>
         </div>
     </div>
@@ -472,32 +735,55 @@
 <!-- CV Download Section -->
 <section id="cv-download">
     <div class="container">
-        <h2 class="animate__animated animate__fadeIn">Download My CV</h2>
-        <p>Want to know more about my skills and experience? Download my CV below!</p>
-        <a href="IMAGES/MY CV ENG.pdf " download class="button cv-download-button" data-tooltip="Resume PDF">
-            <div class="button-wrapper">
-                <div class="text">Download CV</div>
-                <div class="icon">
-                    <i class="fas fa-file-download"></i>
-                </div>
-            </div>
-        </a>
+        <h2 class="animate__animated animate__fadeIn" data-i18n="cvHeading">Download My CV</h2>
+        <p data-i18n="cvDescription">Want to know more about my skills and experience? Download my CV below!</p>
+        <a href="IMAGES/MY CV V2 ENGLISH.pdf" download class="bubble-button" data-tooltip="Resume PDF">Download CV</a>
     </div>
 </section>
 
 <!-- Contact Section -->
 <section id="contact">
     <div class="container">
-        <h2 class="animate__animated animate__fadeIn">Contact Me</h2>
-        <div class="contact-info">
-            <p>
-                <i class="fas fa-envelope"></i> <!-- Email Icon -->
-                <span class="email">douaeabdouni@gmail.com</span>
-            </p>
-            <p>
-                <i class="fas fa-phone"></i> <!-- Phone Icon -->
-                <span class="phone">+212 707 993 963</span>
-            </p>
+        <h2 class="animate__animated animate__fadeIn" data-i18n="contactHeading">Contact Me</h2>
+        <div class="contact-wrapper">
+            <div class="contact-info">
+                <p>
+                    <i class="fas fa-envelope"></i>
+                    <span class="email">douaeabdouni@gmail.com</span>
+                </p>
+                <p>
+                    <i class="fas fa-phone"></i>
+                    <span class="phone">+212 707 993 963</span>
+                </p>
+            </div>
+
+            <!-- Contact form (posts to backend) -->
+            <form id="contactForm" class="contact-form" novalidate>
+                <div class="form-row">
+                    <label for="name" data-i18n="contactName">Name</label>
+                    <input type="text" id="name" name="name" required minlength="2" data-i18n="contactPlaceholder" placeholder="Your name">
+                </div>
+
+                <div class="form-row">
+                    <label for="email" data-i18n="contactEmail">Email</label>
+                    <input type="email" id="email" name="email" required data-i18n="contactEmailPlaceholder" placeholder="you@example.com">
+                </div>
+
+                <div class="form-row">
+                    <label for="subject" data-i18n="contactSubject">Subject</label>
+                    <input type="text" id="subject" name="subject" required data-i18n="contactSubjectPlaceholder" placeholder="Subject">
+                </div>
+
+                <div class="form-row">
+                    <label for="message" data-i18n="contactMessage">Message</label>
+                    <textarea id="message" name="message" required rows="6" data-i18n="contactMessagePlaceholder" placeholder="Write your message..."></textarea>
+                </div>
+
+                <div class="form-row">
+                    <button type="submit" id="contactSubmit" class="bubble-button" data-i18n="sendMessage">Send Message</button>
+                    <span id="contactStatus" aria-live="polite"></span>
+                </div>
+            </form>
         </div>
     </div>
 </section>
@@ -505,13 +791,10 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; 2025 Abdouni Douae. All rights reserved.</p>
+            <p data-i18n="copyright">&copy; 2025 Abdouni Douae. All rights reserved.</p>
             <div class="social-icons">
                 <a href="https://github.com/douae-abdouni" target="_blank"><i class="fab fa-github"></i></a>
                 <a href="https://www.linkedin.com/in/douae-abdouni/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <!-- Add more social icons as needed -->
-                <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-                <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
             </div>
         </div>
     </footer>
@@ -519,5 +802,6 @@
     <!-- Add JavaScript -->
     <script src="script.js"></script>
     <script src="animated-background.js"></script>
+    <!-- Optional: If running behind the Node.js backend in a subpath, ensure fetch targets root. -->
 </body>
 </html>

@@ -15,6 +15,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize sidebar functionality
     initSidebar();
 
+    // Initialize social links visibility on scroll
+    initSocialLinksScroll();
+
+    // Initialize skills filter
+    initSkillsFilter();
+
     // Optional: Initialize particle background
     // initParticles();
 });
@@ -304,4 +310,319 @@ function initSidebar() {
 
     // Set initial active state
     updateActiveLink();
+}
+
+// Contact form handling: client-side validation and POST to backend
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('contactForm');
+    if (!form) return;
+
+    const status = document.getElementById('contactStatus');
+
+    form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+
+        const data = {
+            name: form.name.value.trim(),
+            email: form.email.value.trim(),
+            subject: form.subject.value.trim(),
+            message: form.message.value.trim()
+        };
+
+        // Basic client-side validation
+        if (!data.name || !data.email || !data.message) {
+            status.textContent = 'Please fill in required fields.';
+            return;
+        }
+
+        status.textContent = 'Sending...';
+        try {
+            const resp = await fetch('/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+
+            if (resp.ok) {
+                status.textContent = 'Message sent — thank you!';
+                form.reset();
+            } else {
+                const err = await resp.json().catch(() => ({}));
+                status.textContent = err.error || 'Failed to send message.';
+            }
+        } catch (err) {
+            status.textContent = 'Network error — try again later.';
+        }
+    });
+});
+// ===== THEME TOGGLE FUNCTIONALITY =====
+document.addEventListener('DOMContentLoaded', function() {
+    const themeToggleCheckbox = document.getElementById('themeToggle');
+    const body = document.body;
+
+    // Check for saved theme preference or default to dark mode
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    
+    // Apply saved theme on page load
+    if (savedTheme === 'light') {
+        body.classList.add('light-mode');
+        themeToggleCheckbox.checked = false;  // Unchecked = light mode (sun visible)
+    } else {
+        body.classList.remove('light-mode');
+        themeToggleCheckbox.checked = true;   // Checked = dark mode (moon visible)
+    }
+
+    // Toggle theme on checkbox change
+    themeToggleCheckbox.addEventListener('change', function(e) {
+        // Toggle light mode class
+        body.classList.toggle('light-mode');
+        
+        // Determine current theme
+        const isLightMode = body.classList.contains('light-mode');
+        
+        // Save preference to localStorage
+        localStorage.setItem('theme', isLightMode ? 'light' : 'dark');
+    });
+});
+
+// ===== LANGUAGE SWITCHING FUNCTIONALITY =====
+document.addEventListener('DOMContentLoaded', function() {
+    const langToggle = document.getElementById('langToggle');
+    const langDropdown = document.getElementById('langDropdown');
+    const langOptions = document.querySelectorAll('.lang-option');
+    const html = document.documentElement;
+    
+    // Set language from localStorage or default to 'en'
+    const savedLang = localStorage.getItem('language') || 'en';
+    html.lang = savedLang;
+    
+    // Update toggle button text
+    const langMap = { 'en': 'US', 'fr': 'FR', 'es': 'ES', 'ar': 'MA' };
+    langToggle.textContent = langMap[savedLang] || 'US';
+    
+    // Set RTL for Arabic
+    if (savedLang === 'ar') {
+        html.dir = 'rtl';
+        document.body.dir = 'rtl';
+    } else {
+        html.dir = 'ltr';
+        document.body.dir = 'ltr';
+    }
+    
+    // Toggle dropdown on button click
+    langToggle.addEventListener('click', function(e) {
+        e.stopPropagation();
+        langDropdown.style.display = langDropdown.style.display === 'none' ? 'block' : 'none';
+    });
+    
+    // Handle language option selection
+    langOptions.forEach(option => {
+        option.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const newLang = this.getAttribute('data-value');
+            localStorage.setItem('language', newLang);
+            html.lang = newLang;
+            
+            // Update toggle button text
+            langToggle.textContent = langMap[newLang] || newLang.toUpperCase();
+            
+            // Set text direction for RTL languages
+            if (newLang === 'ar') {
+                html.dir = 'rtl';
+                document.body.dir = 'rtl';
+            } else {
+                html.dir = 'ltr';
+                document.body.dir = 'ltr';
+            }
+            
+            // Close dropdown
+            langDropdown.style.display = 'none';
+            
+            // Update page text with new language
+            updatePageLanguage(newLang);
+        });
+    });
+    
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.lang-dropdown-wrapper')) {
+            langDropdown.style.display = 'none';
+        }
+    });
+    
+    // Initialize page with saved language
+    updatePageLanguage(savedLang);
+});
+
+// Function to update ALL translatable content on the page
+function updatePageLanguage(lang) {
+    if (typeof translations === 'undefined') return;
+    
+    const trans = translations[lang] || translations['en'];
+    
+    // Update ALL elements with data-i18n-html (preferred) and data-i18n
+    document.querySelectorAll('[data-i18n-html]').forEach(element => {
+        const key = element.getAttribute('data-i18n-html');
+        if (trans[key]) {
+            element.innerHTML = trans[key];
+        }
+    });
+
+    document.querySelectorAll('[data-i18n]').forEach(element => {
+        const key = element.getAttribute('data-i18n');
+        if (trans[key]) {
+            if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                element.placeholder = trans[key];
+            } else {
+                element.textContent = trans[key];
+            }
+        }
+    });
+    
+    // Update sidebar menu titles
+    document.querySelector('a[href="#hero"]')?.setAttribute('title', trans.home);
+    document.querySelector('a[href="#about"]')?.setAttribute('title', trans.about);
+    document.querySelector('a[href="#skills"]')?.setAttribute('title', trans.skills);
+    document.querySelector('a[href="#projects"]')?.setAttribute('title', trans.projects);
+    document.querySelector('a[href="#certifications"]')?.setAttribute('title', trans.certifications);
+    document.querySelector('a[href="#cv-download"]')?.setAttribute('title', trans.resume);
+    document.querySelector('a[href="#contact"]')?.setAttribute('title', trans.contact);
+    
+    // STATIC TEXT TRANSLATIONS
+    // Hero Section
+    const heroTitle = document.querySelector('#hero h1');
+    if (heroTitle) heroTitle.innerHTML = trans.heroTitle;
+    
+    const viewProjectsBtn = document.querySelector('#hero .cta-button');
+    if (viewProjectsBtn) viewProjectsBtn.innerHTML = '<i class="fas fa-code"></i> ' + trans.viewProject;
+    
+    // About Section - Keep custom heading, don't override
+    // const aboutHeading = document.querySelector('#about h2');
+    // if (aboutHeading) aboutHeading.textContent = trans.aboutHeading;
+    
+    const aboutLine = document.querySelector('#about .about-animated:nth-of-type(2)');
+    if (aboutLine) aboutLine.innerHTML = trans.aboutLine1;
+    
+    // Skills Section
+    const skillsHeading = document.querySelector('#skills h2');
+    if (skillsHeading) skillsHeading.textContent = trans.skillsHeading;
+    
+    // Languages Section
+    const langHeading = document.querySelector('#languages h2');
+    if (langHeading) langHeading.textContent = trans.languageProf;
+    
+    // Projects Section
+    const projectsHeading = document.querySelector('#projects h2');
+    if (projectsHeading) projectsHeading.innerHTML = trans.projectsHeading;
+    
+    // Certifications Section
+    const certsHeading = document.querySelector('#certifications h2');
+    if (certsHeading) certsHeading.textContent = trans.certsHeading;
+    
+    // CV Section
+    const cvHeading = document.querySelector('#cv-download h2');
+    if (cvHeading) cvHeading.textContent = trans.cvHeading;
+    
+    const cvDescription = document.querySelector('#cv-download p');
+    if (cvDescription) cvDescription.textContent = trans.cvDescription;
+    
+    // Contact Section
+    const contactHeading = document.querySelector('#contact h2');
+    if (contactHeading) contactHeading.textContent = trans.contactHeading;
+    
+    const nameLabel = document.querySelector('label[for="name"]');
+    if (nameLabel) nameLabel.textContent = trans.contactName;
+    
+    const emailLabel = document.querySelector('label[for="email"]');
+    if (emailLabel) emailLabel.textContent = trans.contactEmail;
+    
+    const subjectLabel = document.querySelector('label[for="subject"]');
+    if (subjectLabel) subjectLabel.textContent = trans.contactSubject;
+    
+    const messageLabel = document.querySelector('label[for="message"]');
+    if (messageLabel) messageLabel.textContent = trans.contactMessage;
+    
+    const nameInput = document.getElementById('name');
+    if (nameInput) nameInput.placeholder = trans.contactPlaceholder;
+    
+    const emailInput = document.getElementById('email');
+    if (emailInput) emailInput.placeholder = trans.contactEmailPlaceholder;
+    
+    const subjectInput = document.getElementById('subject');
+    if (subjectInput) subjectInput.placeholder = trans.contactSubjectPlaceholder;
+    
+    const messageInput = document.getElementById('message');
+    if (messageInput) messageInput.placeholder = trans.contactMessagePlaceholder;
+    
+    const submitBtn = document.getElementById('contactSubmit');
+    if (submitBtn) submitBtn.textContent = trans.sendMessage;
+    
+    // Footer
+    const footer = document.querySelector('footer p');
+    if (footer) footer.textContent = trans.copyright;
+}
+
+// Initialize social links visibility on hero section
+function initSocialLinksScroll() {
+    const socialLinks = document.querySelector('.social-links-hero');
+    const heroSection = document.querySelector('#hero');
+    
+    if (!socialLinks || !heroSection) return;
+    
+    window.addEventListener('scroll', function() {
+        const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+        const currentScroll = window.scrollY;
+        
+        // Show social links only while in hero section
+        if (currentScroll < heroBottom - 50) {
+            socialLinks.classList.remove('hidden');
+        } else {
+            socialLinks.classList.add('hidden');
+        }
+    });
+}
+
+// Initialize Skills Filter
+function initSkillsFilter() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const skillsCategories = document.querySelectorAll('.skills-category');
+    
+    if (!filterButtons.length) return;
+    
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const filterValue = this.getAttribute('data-filter');
+            
+            // Update active button
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+            
+            // Filter and animate skills categories
+            skillsCategories.forEach(category => {
+                const categoryValue = category.getAttribute('data-category');
+                
+                if (filterValue === 'all' || categoryValue === filterValue) {
+                    // Show category with animation
+                    category.style.display = 'block';
+                    setTimeout(() => {
+                        category.classList.add('show');
+                    }, 10);
+                } else {
+                    // Hide category with animation
+                    category.classList.remove('show');
+                    setTimeout(() => {
+                        category.style.display = 'none';
+                    }, 300);
+                }
+            });
+        });
+    });
+    
+    // Show all on initial load
+    skillsCategories.forEach(category => {
+        category.classList.add('show');
+    });
+    
+    // Trigger initial state
+    window.dispatchEvent(new Event('scroll'));
 }
