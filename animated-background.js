@@ -8,18 +8,21 @@ class NetworkBackground {
         this.mouse = { x: 0, y: 0 };
         this.animationId = null;
         
+        // Check if light mode is enabled
+        const isLightMode = document.body.classList.contains('light-mode');
+        
         // Configuration - optimized for full page with enhanced visibility
         this.config = {
             particleCount: this.getOptimalParticleCount(),
             maxDistance: 130,
             particleSpeed: 0.4,
-            particleSize: 2.5,
-            connectionOpacity: 0.25, // Increased for better visibility
-            particleOpacity: 0.8, // Increased for better visibility
+            particleSize: isLightMode ? 3.5 : 2.5,
+            connectionOpacity: isLightMode ? 0.6 : 0.25, // Stronger connections in light mode for contrast
+            particleOpacity: isLightMode ? 1 : 0.8, // Full opacity in light mode for visibility
             mouseRadius: 160,
             colors: {
-                particles: '#64ffda',
-                connections: '#64ffda',
+                particles: isLightMode ? '#001a17' : '#64ffda', // Much darker teal for light mode
+                connections: isLightMode ? '#001a17' : '#64ffda', // Match connections color in light mode
                 mouseConnections: '#ff4d00'
             }
         };
@@ -185,7 +188,7 @@ class NetworkBackground {
 document.addEventListener('DOMContentLoaded', () => {
     const networkCanvas = document.getElementById('networkCanvas');
     if (networkCanvas) {
-        new NetworkBackground('networkCanvas');
+        window.networkBackground = new NetworkBackground('networkCanvas');
     }
 });
 
@@ -203,3 +206,31 @@ if (isMobile) {
         document.head.appendChild(style);
     });
 }
+
+// Listen for theme changes and update particle colors dynamically
+let networkBackgroundInstance = null;
+document.addEventListener('DOMContentLoaded', () => {
+    // Store reference to the network background instance
+    const canvas = document.getElementById('networkCanvas');
+    if (canvas && window.networkBackground) {
+        networkBackgroundInstance = window.networkBackground;
+    }
+    
+    // Listen for theme toggle changes
+    const themeToggle = document.getElementById('themeToggle');
+    if (themeToggle) {
+        themeToggle.addEventListener('change', function() {
+            if (networkBackgroundInstance) {
+                // Update colors based on current light-mode status
+                const isLightMode = document.body.classList.contains('light-mode');
+                networkBackgroundInstance.config.colors = {
+                    particles: isLightMode ? '#000d0a' : '#64ffda', // Even darker for light mode
+                    connections: isLightMode ? '#000d0a' : '#64ffda',
+                    mouseConnections: '#ff4d00'
+                };
+                networkBackgroundInstance.config.particleSize = isLightMode ? 4 : 2.5;
+                networkBackgroundInstance.config.connectionOpacity = isLightMode ? 0.7 : 0.25;
+            }
+        });
+    }
+});
