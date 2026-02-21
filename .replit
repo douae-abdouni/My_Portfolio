@@ -1,9 +1,4 @@
-modules = ["web", "nodejs-20", "python-3.12"]
-[agent]
-expertMode = true
-
-[nix]
-channel = "stable-25_05"
+modules = ["web", "nodejs-20"]
 
 [workflows]
 runButton = "Project"
@@ -23,16 +18,26 @@ author = "agent"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "python server.py"
-waitForPort = 5000
+args = "node server.js"
+waitForPort = 3000
 
 [workflows.workflow.metadata]
 outputType = "webview"
 
 [[ports]]
-localPort = 5000
+localPort = 3000
 externalPort = 80
 
-[deployment]
-deploymentTarget = "static"
-publicDir = "."
+[userenv.shared]
+ADMIN_USER = "admin"
+ADMIN_PASS = "Smtpdouae22"
+SMTP_HOST = "smtp.gmail.com"
+SMTP_PORT = "587"
+SMTP_USER = "douaeabdouni@gmail.com"
+SMTP_PASS = "ocnc olta rwmz kwhc"
+FROM_EMAIL = "douaeabdouni@gmail.com"
+TO_EMAIL = "douaeabdouni@gmail.com"
+SMTP_SECURE = "false"
+
+[agent]
+expertMode = true
