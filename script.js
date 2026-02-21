@@ -259,6 +259,33 @@ function initParticles() {
 function initSidebar() {
     const sidebarLinks = document.querySelectorAll('.sidebar-menu a');
     const sections = document.querySelectorAll('section[id]');
+    const sidebarMenu = document.querySelector('.sidebar-menu');
+
+    // Handle mobile sidebar scroll - auto-scroll to active link on mobile
+    function scrollSidebarMenuIntoView() {
+        if (window.innerWidth <= 768 && sidebarMenu) {
+            const activeLink = document.querySelector('.sidebar-menu a.active');
+            if (activeLink) {
+                // Scroll the menu so active link is visible
+                const linkLeft = activeLink.offsetLeft;
+                const linkWidth = activeLink.offsetWidth;
+                const scrollLeft = sidebarMenu.scrollLeft;
+                const menuWidth = sidebarMenu.clientWidth;
+
+                // Check if link is outside visible area
+                if (linkLeft < scrollLeft) {
+                    // Link is to the left, scroll left
+                    sidebarMenu.scrollLeft = linkLeft - 20;
+                } else if (linkLeft + linkWidth > scrollLeft + menuWidth) {
+                    // Link is to the right, scroll right
+                    sidebarMenu.scrollLeft = linkLeft + linkWidth - menuWidth + 20;
+                }
+
+                // Smooth scroll behavior
+                sidebarMenu.style.scrollBehavior = 'smooth';
+            }
+        }
+    }
 
     // Add smooth scrolling to sidebar links
     sidebarLinks.forEach(link => {
@@ -301,12 +328,19 @@ function initSidebar() {
             const activeLink = document.querySelector(`.sidebar-menu a[href="#${current}"]`);
             if (activeLink) {
                 activeLink.classList.add('active');
+                // Scroll sidebar menu on mobile to show active link
+                scrollSidebarMenuIntoView();
             }
         }
     }
 
     // Listen for scroll events
     window.addEventListener('scroll', updateActiveLink);
+
+    // Handle window resize to update sidebar behavior
+    window.addEventListener('resize', () => {
+        updateActiveLink();
+    });
 
     // Set initial active state
     updateActiveLink();

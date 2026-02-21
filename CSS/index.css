@@ -3191,12 +3191,43 @@ footer .social-icons a:hover {
         flex-direction: row;
         gap: 15px;
         flex: none;
+        overflow-x: auto;
+        overflow-y: hidden;
+        max-width: 100%;
+        padding: 0 10px;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+        scrollbar-width: thin;
+        scrollbar-color: rgba(100, 255, 218, 0.3) transparent;
+    }
+
+    /* Custom scrollbar for mobile sidebar - hide by default, show on hover */
+    .sidebar-menu::-webkit-scrollbar {
+        height: 3px;
+    }
+
+    .sidebar-menu::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    .sidebar-menu::-webkit-scrollbar-thumb {
+        background: rgba(100, 255, 218, 0.2);
+        border-radius: 2px;
+    }
+
+    .sidebar-menu::-webkit-scrollbar-thumb:hover {
+        background: rgba(100, 255, 218, 0.5);
+    }
+
+    .sidebar::-webkit-scrollbar {
+        display: none;
     }
 
     .sidebar-menu a {
         width: 42px;
         height: 42px;
         font-size: 15px;
+        flex-shrink: 0; /* Prevent flex items from shrinking */
     }
 
     .sidebar-menu a:hover {
@@ -3224,6 +3255,13 @@ footer .social-icons a:hover {
 
     #hero h1 {
         font-size: 2.5em;
+    }
+
+    .about-text h2 {
+        font-size: 1.8em;
+        white-space: nowrap;
+        display: block;
+        margin-bottom: 20px;
     }
 
     /* Reduce animated background intensity on mobile */
@@ -3265,6 +3303,72 @@ footer .social-icons a:hover {
 
     .projects-grid, .certifications-grid {
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+
+    /* Contact form mobile adjustments */
+    #contact h2 {
+        font-size: 2em;
+        margin-bottom: 30px;
+    }
+
+    #contact h2::after {
+        width: 60px;
+        bottom: -12px;
+    }
+
+    .contact-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 0 15px;
+    }
+
+    .contact-info {
+        padding: 20px;
+        gap: 15px;
+        max-width: 100%;
+    }
+
+    .contact-info p {
+        font-size: 1.1em;
+    }
+
+    .contact-form {
+        padding: 20px;
+        max-width: 100%;
+    }
+
+    .contact-form .form-row {
+        margin-bottom: 12px;
+    }
+
+    .contact-form label {
+        font-size: 0.9rem;
+        margin-bottom: 5px;
+    }
+
+    .contact-form input[type="text"],
+    .contact-form input[type="email"],
+    .contact-form textarea {
+        padding: 10px;
+        font-size: 16px; /* Prevents zoom on iOS when focusing input */
+    }
+
+    .contact-form textarea {
+        min-height: 100px;
+    }
+
+    .contact-form .bubble-button {
+        width: 100%;
+        padding: 12px 20px;
+        font-size: 1rem;
+    }
+
+    .contact-form #contactStatus {
+        display: block;
+        margin-left: 0;
+        margin-top: 10px;
+        text-align: center;
     }
 }
 
