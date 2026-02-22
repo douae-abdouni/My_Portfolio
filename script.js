@@ -371,7 +371,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         status.textContent = 'Sending...';
         try {
-            const resp = await fetch('/api/contact', {
+            const resp = await fetch('https://187dac84-fe0f-4061-ac8c-892e108e3c72-00-g9doyuytljc.spock.replit.dev/api/contact', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data)
