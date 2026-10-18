@@ -114,10 +114,10 @@ function initTypingEffect() {
     const cursorSpan = document.querySelector(".cursor");
 
     const textArray = [
-        "Software Engineer",
-        "Problem Solver",
-        "Creative Thinker",
-        "Tech Enthusiast"
+        "Software Engineering Student",
+        "Full-Stack Developer",
+        "AI/ML Enthusiast",
+        "Seeking a PFE Opportunity"
     ];
 
     const typingDelay = 100;
@@ -543,7 +543,7 @@ function updatePageLanguage(lang) {
     
     // Languages Section
     const langHeading = document.querySelector('#languages h2');
-    if (langHeading) langHeading.textContent = trans.languageProf;
+    if (langHeading) langHeading.textContent = trans.languagesHeading || trans.languageProf;
     
     // Projects Section
     const projectsHeading = document.querySelector('#projects h2');

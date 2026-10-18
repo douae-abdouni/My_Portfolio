@@ -1687,13 +1687,17 @@ header p {
 }
 
 /* Fluent - Sidebar green color */
-.language-card.fluent {
+.language-card.fluent,
+.language-card.proficient,
+.language-card.native {
     background: rgba(100, 255, 218, 0.15);
     color: #64ffda;
     border-color: #64ffda;
 }
 
-.language-card.fluent:hover {
+.language-card.fluent:hover,
+.language-card.proficient:hover,
+.language-card.native:hover {
     background: #64ffda;
     color: #0a0a0a;
     border-color: #64ffda;
@@ -1716,13 +1720,17 @@ header p {
     box-shadow: 0 8px 24px rgba(100, 255, 218, 0.3);
 }
 
-.light-mode .language-card.fluent {
+.light-mode .language-card.fluent,
+.light-mode .language-card.proficient,
+.light-mode .language-card.native {
     background: rgba(100, 200, 255, 0.1);
     color: #0078d4;
     border-color: #0078d4;
 }
 
-.light-mode .language-card.fluent:hover {
+.light-mode .language-card.fluent:hover,
+.light-mode .language-card.proficient:hover,
+.light-mode .language-card.native:hover {
     background: #0078d4;
     color: #fff;
     border-color: #0078d4;
@@ -2047,6 +2055,29 @@ header p {
     object-fit: contain;
     object-position: center;
     transform: scale(1.05);
+}
+
+.mailflow-visual {
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 18px;
+    padding: 20px;
+    color: #f7f3ff;
+    background: radial-gradient(circle at 25% 20%, rgba(100, 255, 218, 0.2), transparent 35%),
+        linear-gradient(135deg, #18152b, #29204a 55%, #121b2c);
+}
+
+.mailflow-visual i {
+    color: #64ffda;
+    font-size: clamp(4rem, 10vw, 7rem);
+    filter: drop-shadow(0 0 24px rgba(100, 255, 218, 0.35));
+}
+
+.mailflow-visual span {
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
 }
 
 /* Specific positioning for projects 1 and 2 - move images down */
